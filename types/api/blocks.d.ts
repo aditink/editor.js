@@ -96,7 +96,7 @@ export interface Blocks {
   /**
    * Insert new Block and return inserted Block API
    *
-   * @param newBlock - new block config
+   * @param{NewBlock} newBlock - new block config
    *
    */
   insert(newBlock: NewBlock): BlockAPI;

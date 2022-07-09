@@ -407,6 +407,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
     const newBlock = this.api.blocks.insert({
       type: toolName,
       data: blockData,
+      config: undefined,
       index,
       replace: currentBlock.isEmpty,
     });

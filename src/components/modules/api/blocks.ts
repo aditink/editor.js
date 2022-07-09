@@ -1,4 +1,4 @@
-import { BlockAPI as BlockAPIInterface, Blocks } from '../../../../types/api';
+import { BlockAPI as BlockAPIInterface, Blocks, NewBlock } from '../../../../types/api';
 import { BlockToolData, OutputData, ToolConfig } from '../../../../types';
 import * as _ from './../../utils';
 import BlockAPI from '../../block/api';
@@ -221,17 +221,16 @@ export default class BlocksAPI extends Module {
   }
 
   /**
-   * Insert new Block and returns it's API
+   * Insert new Block and returns its API
    *
-   * @param {string} type — Tool name
-   * @param {BlockToolData} data — Tool data to insert
-   * @param {ToolConfig} config — Tool config
-   * @param {number?} index — index where to insert new Block
-   * @param {boolean?} needToFocus - flag to focus inserted Block
-   * @param replace - pass true to replace the Block existed under passed index
+   * @param {NewBlock} newBlock — the block that will be inserted
    */
   public insert = (
-    newBlock
+    newBlock: NewBlock = {
+      type: this.config.defaultBlock,
+      data: {},
+      config: {}
+    }
   ): BlockAPIInterface => {
     const insertedBlock = this.Editor.BlockManager.insert({
       tool: newBlock.type,
@@ -273,7 +272,7 @@ export default class BlocksAPI extends Module {
   public insertNewBlock(): void {
     _.log('Method blocks.insertNewBlock() is deprecated and it will be removed in the next major release. ' +
       'Use blocks.insert() instead.', 'warn');
-    this.insert({});
+    this.insert();
   }
 
   /**
