@@ -1,4 +1,4 @@
-import { InsertedBlock } from '.';
+import {InsertedBlock} from '.';
 import {OutputData} from '../data-formats/output-data';
 import {BlockToolData, ToolConfig} from '../tools';
 import {BlockAPI} from './block';

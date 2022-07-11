@@ -225,7 +225,7 @@ export default class BlocksAPI extends Module {
    * Insert new Block and returns it's API
    * @param {InsertedBlock} block - The block being inserted
    */
-   public insert (block: InsertedBlock): BlockAPIInterface {
+   public insert(block: InsertedBlock): BlockAPIInterface {
     const insertedBlock = this.Editor.BlockManager.insert(block);
     return new BlockAPI(insertedBlock);
   }
