@@ -9,6 +9,7 @@ import Popover, { PopoverEvent, PopoverItem } from '../utils/popover';
 import I18n from '../i18n';
 import { I18nInternalNS } from '../i18n/namespace-internal';
 
+
 /**
  * @todo the first Tab on the Block — focus Plus Button, the second — focus Block Tunes Toggler, the third — focus next Block
  */
@@ -407,6 +408,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
     const newBlock = this.api.blocks.insert({
       type: toolName,
       data: blockData,
+      config: undefined,
       index,
       replace: currentBlock.isEmpty,
     });

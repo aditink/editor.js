@@ -83,17 +83,17 @@ export interface BlockAPI {
   /**
    * Tool name
    */
-  type?: string,
+  type: string,
 
   /**
    * Tool data to insert
    */
-  data?: BlockToolData,
+  data: BlockToolData,
 
   /**
    * Tool config
    */
-  config?: ToolConfig,
+  config: ToolConfig,
 
   /**
    * index where to insert new block
@@ -101,7 +101,7 @@ export interface BlockAPI {
   index?: number,
 
   /**
-   * falg to focus inserted block
+   * flag to focus inserted block
    */
   needToFocus?: boolean,
 

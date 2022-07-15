@@ -225,8 +225,18 @@ export default class BlocksAPI extends Module {
    * Insert new Block and returns it's API
    * @param {InsertedBlock} block - The block being inserted
    */
-   public insert(block: InsertedBlock): BlockAPIInterface {
-    const insertedBlock = this.Editor.BlockManager.insert(block);
+   public insert = (block: InsertedBlock = {
+      type : this.config.defaultBlock,
+      data: {},
+      config: {}
+   }): BlockAPIInterface => {
+    const insertedBlock = this.Editor.BlockManager.insert({
+      tool: block.type,
+      data: block.data,
+      index: block.index,
+      needToFocus: block.needToFocus,
+      replace: block.replace,
+    });
     return new BlockAPI(insertedBlock);
   }
 
@@ -259,7 +269,7 @@ export default class BlocksAPI extends Module {
   public insertNewBlock(): void {
     _.log('Method blocks.insertNewBlock() is deprecated and it will be removed in the next major release. ' +
       'Use blocks.insert() instead.', 'warn');
-    this.insert({});
+    this.insert();
   }
 
   /**
