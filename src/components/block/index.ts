@@ -277,6 +277,10 @@ export default class Block extends EventsDispatcher<BlockEvents> {
     this.composeTunes(tunesData);
 
     this.holder = this.compose();
+
+    if(this.holder === undefined){
+      this.holder = new HTMLDivElement;
+    }
   }
 
   /**
