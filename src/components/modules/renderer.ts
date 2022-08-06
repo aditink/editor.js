@@ -46,6 +46,15 @@ export default class Renderer extends Module {
    * @param {OutputBlockData[]} blocks - blocks to render
    */
   public async render(blocks: OutputBlockData[]): Promise<void> {
+
+    if (blocks.length === 0) {
+      blocks = [{
+          "data": {"text": ""},
+          "id": "WhateverXX",
+          "type": "paragraph",
+      }]
+  }
+  
     const chainData = blocks.map((block) => ({ function: (): Promise<void> => this.insertBlock(block) }));
 
     /**
